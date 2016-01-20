@@ -15,7 +15,7 @@ var bot = controller.spawn({
 controller.hears(['.*'], 'direct_message,direct_mention,mention', function (bot, message) {
     controller.storage.users.get(message.user, function (err, user) {
         var http = require('http');
-        var message_cleaned = message.text.replace(/[^a-z0-9]+/gi, " ");
+        var message_cleaned = message.text.replace(/[^a-z0-9 ?!.]+/gi, "");
         console.log(JSON.stringify(message));
         var options = {
             host: 'localhost',
